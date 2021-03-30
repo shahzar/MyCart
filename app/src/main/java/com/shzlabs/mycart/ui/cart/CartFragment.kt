@@ -1,12 +1,13 @@
 package com.shzlabs.mycart.ui.cart
 
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shzlabs.mycart.NavMgr
 import com.shzlabs.mycart.R
+import com.shzlabs.mycart.data.model.CartModel
 import com.shzlabs.mycart.ui.base.BaseFragment
 import com.shzlabs.mycart.ui.confirmation.OrderConfirmationFragment
-import com.shzlabs.mycart.ui.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_cart.*
 import javax.inject.Inject
 
@@ -38,8 +39,14 @@ class CartFragment : BaseFragment<CartViewModel>() {
     override fun setupObservers() {
         super.setupObservers()
         viewModel.cartItems.observe(viewLifecycleOwner, Observer {
-            cartItemAdapter?.submitList(it)
+            loadCartItems(it)
         })
+    }
+
+    private fun loadCartItems(cartModel: CartModel) {
+        listItems.visibility = View.VISIBLE
+        lottieLoadAnim.visibility = View.GONE
+        cartItemAdapter?.submitList(cartModel)
     }
 
     private fun checkout() {

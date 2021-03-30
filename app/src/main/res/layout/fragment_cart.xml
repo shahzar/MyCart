@@ -23,7 +23,22 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         tools:listitem="@layout/item_cart"
+
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoadAnim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:lottie_fileName="load_anim_lottie.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toBottomOf="@id/txtProducts"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/btnCheckout" />
 
     <Button
         android:id="@+id/btnCheckout"
