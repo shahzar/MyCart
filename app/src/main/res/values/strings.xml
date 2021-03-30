@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyCart</string>
+    <string name="btn_checkout">Checkout</string>
+    <string name="sub_title_cart">Products in cart</string>
+    <string name="label_order_placed">Thank you for your order!</string>
+    <string name="msg_order_placed">You\'ll receive email confirmation shortly. Your order will be sent within 48Hrs.</string>
+    <string name="msg_order_placed_2">Check the status of the order on the <b>Order tracking</b> page</string>
+</resources>
