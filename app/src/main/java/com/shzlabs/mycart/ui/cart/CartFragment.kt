@@ -31,7 +31,7 @@ class CartFragment : BaseFragment<CartViewModel>() {
         listItems.adapter = cartItemAdapter
 
         btnCheckout.setOnClickListener {
-            navMgr.pushFragment(activity, OrderConfirmationFragment.newInstance(), false)
+            checkout()
         }
     }
 
@@ -40,6 +40,21 @@ class CartFragment : BaseFragment<CartViewModel>() {
         viewModel.cartItems.observe(viewLifecycleOwner, Observer {
             cartItemAdapter?.submitList(it)
         })
+    }
+
+    private fun checkout() {
+        fragmentManager?.let {
+            val bottomSheetDialog = CheckoutBottomSheetDialog()
+            bottomSheetDialog.show(it, "")
+
+            bottomSheetDialog.setOnOrderConfirmedListener {
+                orderConfirmed()
+            }
+        }
+    }
+
+    private fun orderConfirmed() {
+        navMgr.pushFragment(activity, OrderConfirmationFragment.newInstance(), false)
     }
 
 }
